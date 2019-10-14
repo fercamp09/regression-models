@@ -1,0 +1,38 @@
+---
+title: "Motor-Trends"
+author: "Fernando Campaña"
+date: "10/13/2019"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+
+
+```{r cars}
+
+summary(mtcars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+library(lattice) 
+attach(mtcars)
+am.f<-factor(am,levels=c(0,1),
+   labels=c("automatic","manual")) 
+xyplot(mpg ~ cyl | am.f, 
+   main="Density Plot by type of gear",
+   xlab="Miles per Gallon")
+```
+
+```{r pressure, echo=FALSE}
+library(ggplot2) 
+qplot(x = cty, y = hwy, data = mpg, geom = 'point')
+```
